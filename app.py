@@ -1,6 +1,6 @@
 from flask import Flask, render_template,  session, redirect, request, url_for
 import os
-from NN import get
+from chat_bot.NN import get
 
 
 IMG_FOLDER = os.path.join('static', 'images')
