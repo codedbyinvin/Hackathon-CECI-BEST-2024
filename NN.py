@@ -11,7 +11,6 @@ class NeuralNetwork(nn.Module):
         self.layer1 = nn.Linear(INPUT_LENGHT, 50)  # Input layer with 10 features and 50 outputs
         self.relu = nn.ReLU()            # ReLU activation function
         self.layer2 = nn.Linear(50, 50)
-
         self.layer3 = nn.Linear(50, OUTPUT_LENGHT)   # Output layer with 1 output
 
     def forward(self, x):
