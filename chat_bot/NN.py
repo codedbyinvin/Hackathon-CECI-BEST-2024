@@ -23,7 +23,7 @@ class NeuralNetwork(nn.Module):
 
 # load the model
 model = NeuralNetwork()
-model.load_state_dict(torch.load('model.pth'))
+model.load_state_dict(torch.load('chat_bot/model.pth'))
 model.eval() # set the model to evaluation mode
 print('Model loaded')
 
