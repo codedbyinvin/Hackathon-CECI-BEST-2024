@@ -11,3 +11,5 @@ flask run
 set FLASK_APP=app.py
 set FLASK_ENV=development
 flask run
+
+# deadline 8h30 (ptit dej) 
