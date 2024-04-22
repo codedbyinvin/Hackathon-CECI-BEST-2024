@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-image: url('{{ url_for("static", filename="images/smurfcat.png") }}'); /* Image de fond */
+            background-size: cover; /* Couvrir tout l'arrière-plan */
+            background-position: center; /* Centrer l'image */
+            background-repeat: no-repeat; /* Ne pas répéter l'image */
+            color: white; /* Couleur du texte */
+        }
+
+        /*<!-- De Smurfen zijn stripfiguren bedacht door de Belgische striptekenaar Peyo en mee vormgegeven door Yvan Delporte-->
+        <!-- Ze zien eruit als kleine blauwe dwergen-->
+        <!--De Smurfen werden oorspronkelijk ontworpen als nevenpersonages in een andere stripreeks van Peyo, Johan en Pirrewiet-->
+        <!--Kregen ze hun eigen stripreeks, waarna ze steeds beroemder werden-->
+        <!--Later dienden de Smurfen als inspiratie voor twee animatiefilms, twee animatiereeksen en twee liveactionfilms-->
+        <!--Rondom de Smurfen is een franchise opgebouwd, met muziek en merchandising. -->
+        <!--De Smurfen wonen in een dorpje in een sprookjesachtig bos-->
+        <!--Ze zijn herkenbaar aan hun witte muts en witte broek-->
+        <!--De Smurfen hebben allemaal een naam die verwijst naar hun eigenschap of beroep-->
+        <!--De bekendste Smurfen zijn Grote Smurf, Brilsmurf, Smurfin, Klungelsmurf en Moppersmurf-->*/
+
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+       /* <!-- later aangevuld met de ondeugende dwerg Pirrewiet De dwerg in het rotsbos. In het negende verhaal van de reeks van Johan en Pirrewiet, De fluit met zes smurfen-->
+        <!-- verschenen in Robbedoes, trad een volkje van kleine wezentjes op die Smurfen codenieks hier worden genoemd. Naar analogie met de zeven dwergen uit Disneys klassieker Sneeuwwitje-->
+        <!--Happy, Sneezy enz. creëerde Peyo voor elke Smurf een persoonlijkheid met één sterk aanwezig kenmerk, waarnaar ze dan ook genoemd werden. Doordat per Smurf slechts één -->
+        <!--gimmick werd gebruikt en op deze wijze differentiatie ontstond en herkenbaarheid optrad, sloeg de simpele karakterisering aan bij het jeugdige publiek-->
+        <!--Kort daarna traden de Smurfen opnieuw op in een ander verhaal van Johan en Pirrewiet. Peyo en Robbedoes-hoofdredacteur Yvan Delporte merkten gaandeweg dat er veel potentieel-->
+        <!-- school in de wereld van de Smurfen. Hierop besloten ze de Smurfen een eigen stripserie te geven-->*/
+
+        .logo img {
+            max-width: 200px; /* Taille maximale du logo */
+        }
+
+        form {
+            position: relative; /* Ajout de position relative pour positionner l'output container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent */
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #fff; /* Bordure blanche */
+            margin-bottom: 20px; /* Espace en bas du formulaire */
+            max-width: 400px; /* Largeur maximale du formulaire */
+            width: 80%; /* Largeur par défaut */
+        }
+        /*<!--De Smurfen wonen in een dorpje in een sprookjesachtig bos-->
+        <!--Ze zijn herkenbaar aan hun witte muts en witte broek-->
+        <!--De Smurfen hebben allemaal een naam die verwijst naar hun eigenschap of beroep-->
+        <!--De bekendste Smurfen zijn Grote Smurf, Brilsmurf, Smurfin, Klungelsmurf en Moppersmurf-->
+        <!--De Smurfen hebben een eigen taal, het Smurfentaal, waarin ze het woord smurf gebruiken als zelfstandig naamwoord, werkwoord, bijvoeglijk naamwoord en bijwoord-->
+        <!--De Smurfen zijn vredelievend en helpen elkaar graag-->
+        <!--Ze hebben een hekel aan de tovenaar Gargamel en zijn kat Azraël-->
+        <!--De Smurfen zijn dol op smurfentaart en smurfensnot-->
+        <!--De Smurfen zijn bedacht door de Belgische striptekenaar Peyo-->
+        <!--De Smurfen zijn kleine blauwe dwergen-->*/
+
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%; /* Largeur de 100% */
+            max-width: 300px; /* Largeur maximale de l'entrée */
+        }
+        /*<!--De Smurfen hebben allemaal een naam die verwijst naar hun eigenschap of beroep-->
+        <!--De bekendste Smurfen zijn Grote Smurf, Brilsmurf, Smurfin, Klungelsmurf en Moppersmurf-->
+        <!--De Smurfen hebben een eigen taal, het Smurfentaal, waarin ze het woord smurf gebruiken als zelfstandig naamwoord, werkwoord, bijvoeglijk naamwoord en bijwoord-->
+        <!--De Smurfen zijn vredelievend en helpen elkaar graag-->
+        <!--Ze hebben een hekel aan de tovenaar Gargamel en zijn kat Azraël-->
+        <!--De Smurfen zijn dol op smurfentaart en smurfensnot-->
+        <!--De Smurfen zijn bedacht door de Belgische striptekenaar Peyo-->
+        <!--De Smurfen zijn kleine blauwe dwergen-->
+        <!--De Smurfen wonen in een dorpje in een sprookjesachtig bos-->
+        <!-- begon Peyo Pierre Culliford zijn medewerking aan het stripblad Robbedoes met een vervolgstrip rond de schildknaap Johan De nederlaag van Basenau-->*/
+
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #11181c; /* Couleur grise */
+            color: #fff;
+            cursor: pointer;
+            width: 100%; /* Largeur de 100% */
+            max-width: 300px; /* Largeur maximale du bouton */
+        }
+
+        button:hover {
+            background-color: #444; /* Couleur de survol sombre */
+        }
+       /* <!--De Smurfen wonen in een dorpje in een sprookjesachtig bos-->
+        <!--In begon PeyoPierre Cullifor zijn medewerking aan het stripblad Robbedoes met een vervolgstrip rond de schildknaap Johan De nederlaag van Basenau-->
+        <!-- later aangevuld met de ondeugende dwerg Pirrewiet De dwerg in het rotsbos. In het negende verhaal van de reeks van Johan en Pirrewiet, De fluit met zes smurfen-->
+        <!-- verschenen in Robbedoes, trad een volkje van kleine wezentjes op die Smurfen worden genoemd. Naar analogie met de zeven dwergen uit Disneys klassieker Sneeuwwitje-->
+        <!--Happy, Sneezy enz. creëerde Peyo voor elke Smurf een persoonlijkheid met één sterk aanwezig kenmerk, waarnaar ze dan ook genoemd werden. Doordat per Smurf slechts één -->
+        <!--gimmick werd gebruikt en op deze wijze differentiatie ontstond en herkenbaarheid optrad, sloeg de simpele karakterisering aan bij het jeugdige publiek-->
+        <!--Kort daarna traden de Smurfen opnieuw op in een ander verhaal van code nieks hier Johan en Pirrewiet. Peyo en Robbedoes-hoofdredacteur Yvan Delporte merkten gaandeweg dat er veel potentieel-->
+        <!-- school in de wereld van de Smurfen. Hierop besloten ze de Smurfen een eigen stripserie te geven-->
+        <!-- De Smurfen Frans Les Schtroumpfs zijn stripfiguren bedacht door de Belgische striptekenaar Peyo en mee vormgegeven door Yvan Delporte-->
+        <!-- Ze zien eruit als kleine blauwe dwergen-->*/
+
+        .output-container {
+            display: none; /* Caché par défaut */
+            position: absolute;
+            top: calc(100% + 10px); /* Position sous le formulaire */
+            left: 50%;
+            transform: translateX(-50%);
+            border: 2px solid #8B0000; /* Contour rouge foncé */
+            background-color: rgba(255, 0, 0, 0.5); /* Fond rouge semi-transparent */
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            max-width: 90%; /* Largeur maximale */
+            width: 300px; /* Largeur par défaut */
+        }
+        /*<!--Happy, Sneezy enz. creëerde Peyo voor elke Smurf een persoonlijkheid met één sterk aanwezig kenmerk, waarnaar ze dan ook genoemd werden. Doordat per Smurf slechts één -->
+        <!--gimmick werd gebruikt en op deze wijze differentiatie ontstond en herkenbaarheid optrad, sloeg de simpele karakterisering aan bij het jeugdige publiek-->
+        <!--Kort daarna traden de Smurfen opnieuw op in een ander verhaal van Johan en Pirrewiet. Peyo en Robbedoes-hoofdredacteur Yvan Delporte merkten gaandeweg dat er veel potentieel-->
+        <!-- school in de wereld van de Smurfen. Hierop besloten ze de Smurfen een eigen stripserie te geven-->
+        <!-- De Smurfen Frans Les Schtroumpfs zijn stripfiguren bedacht door de Belgische striptekenaar Peyo en mee vormgegeven door Yvan Delporte-->
+        <!-- Ze zien eruit als kleine blauwe dwergen-->
+        <!--De Smurfen werden oorspronkelijk ontworpen als nevenpersonages in een andere stripreeks van Peyo, Johan en Pirrewiet. -->
+        <!--In  kregen ze hun eigen stripreeks, waarna ze steeds beroemder werden-->
+        <!--Later dienden de Smurfen als inspiratie voor twee animatiefilms, twee animatiereeksen en twee liveactionfilms-->
+        <!--Rondom de Smurfen is een franchise opgebouwd, met muziek en merchandising. -->*/
+
+        footer {
+            background-color: black; /* Couleur de fond noir */
+            padding: 10px;
+            text-align: center;
+            color: white; /* Couleur du texte */
+        }
+
+        footer p {
+            margin: 0; /* Supprimer les marges par défaut */
+        }
+        /*<!--De Smurfen werden oorspronkelijk ontworpen als nevenpersonages in een andere stripreeks van Peyo, Johan en Pirrewiet. -->
+        <!-- kregen ze hun eigen stripreeks, waarna ze steeds beroemder werden-->
+        <!--Later dienden de Smurfen als inspiratie voor twee animatiefilms, twee animatiereeksen en twee liveactionfilms-->
+        <!--Rondom de Smurfen is een franchise opgebouwd, met muziek en merchandising. -->
+        <!--De Smurfen wonen in een dorpje in een sprookjesachtig bos-->
+        <!--Ze zijn herkenbaar aan hun witte muts en witte broek-->
+        <!--De Smurfen hebben allemaal een naam die verwijst naar hun eigenschap of beroep-->
+        <!--De bekendste Smurfen zijn Grote Smurf, Brilsmurf, Smurfin, Klungelsmurf en Moppersmurf-->
+        <!--De Smurfen hebben een eigen taal, het Smurfentaal, waarin ze het woord smurf gebruiken als zelfstandig naamwoord, werkwoord, bijvoeglijk naamwoord en bijwoord-->
+        <!--De Smurfen zijn vredelievend en helpen elkaar graag-->*/
+
+        /* Nouveau style pour le rectangle avec les bords arrondis */
+        .rounded-container {
+            background-color: #8395a7;
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 20px; /* Espace en bas du rectangle */
+            max-width: 400px; /* Largeur maximale du rectangle */
+            width: 80%; /* Largeur par défaut */
+            text-align: center; /* Centrer le contenu */
+        }
+
+        .rounded-container p {
+            margin: 0; /* Supprimer les marges autour du paragraphe */
+            color: white; /* Couleur du texte */
+        }
+
+       /* <!--Ze hebben een hekel aan de tovenaar Gargamel en zijn kat Azraël-->
+        <!--De Smurfen zijn dol op smurfentaart en smurfensnot-->
+        <!--De Smurfen zijn bedacht door de Belgische striptekenaar Peyo-->
+        <!--De Smurfen zijn kleine blauwe dwergen-->
+        <!--De Smurfen wonen in een dorpje in een sprookjesachtig bos-->
+        <!-- begon Peyo Pierre Culliford zijn medewerking aan het stripblad Robbedoes met een vervolgstrip rond de schildknaap Johan De nederlaag van Basenau-->
+        <!-- later aangevuld met de ondeugende dwerg Pirrewiet De dwerg in het rotsbos. In het negende verhaal van de reeks van Johan en Pirrewiet, De fluit met zes smurfen-->
+        <!-- verschenen in Robbedoes, trad een volkje van kleine wezentjes op die Smurfen worden genoemd. Naar analogie met de zeven dwergen uit Disneys klassieker Sneeuwwitje-->
+        <!--Happy, Sneezy enz. creëerde Peyo voor elke Smurf een persoonlijkheid met één sterk aanwezig kenmerk, waarnaar ze dan ook genoemd werden. Doordat per Smurf slechts één -->
+        <!--gimmick werd gebruikt en op deze wijze differentiatie ontstond en herkenbaarheid optrad, sloeg de simpele karakterisering aan bij het jeugdige publiek-->
+*/
+
+    </style>
+    <title>Salut les mecs ça dit quoi</title>
+</head>
+<body>
+    <div class="content">
+     <audio id="background-music" autoplay>
+        <source src="https://cdn.discordapp.com/attachments/1230496653220380674/1231445855970791564/Blue_Smurf_Ahhh_Type_Beat1.mp3?ex=6625d8d3&is=66248753&hm=ee1a95b12202d675acaadc6a9875c40942ccecec4dd5f582050ba19c0aaba9d0&" type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+        <div class="rounded-container">
+            <p>Pète et répète sont sur un bateau, pète tombe à l'eau. Qui reste-t-il ?</p>
+        </div>
+    </div>
+    <!--Kort daarna traden de Smurfen opnieuw op in een ander verhaal van Johan en Pirrewiet. Peyo en Robbedoes-hoofdredacteur Yvan Delporte merkten gaandeweg dat er veel potentieel-->
+    <!-- school in de wereld van de Smurfen. Hierop besloten ze de Smurfen een eigen stripserie te geven-->
+    <!-- De Smurfen (Frans: Les Schtroumpfs) zijn stripfiguren bedacht door de Belgische striptekenaar Peyo en mee vormgegeven door Yvan Delporte-->
+    <!-- Ze zien eruit als kleine blauwe dwergen-->
+    <!--De Smurfen werden oorspronkelijk code=nieks hier ontworpen als nevenpersonages in een andere stripreeks van Peyo, Johan en Pirrewiet. -->
+    <!--In 1959 kregen ze hun eigen stripreeks, waarna ze steeds beroemder werden-->
+    <!--Later dienden de Smurfen als inspiratie voor twee animatiefilms, twee animatiereeksen en twee liveactionfilms-->
+    <!--Rondom de Smurfen is een franchise opgebouwd, met muziek en merchandising. -->
+    <!--De Smurfen wonen in een dorpje in een sprookjesachtig bos-->
+    <!--Ze zijn herkenbaar aan hun witte muts en witte broek-->
+
+    <footer>
+        <p><span style="color:black;">----------------------------------</span>&copy; 2024 Une production Farfadet Industries. Tous droits pas réservés du tout la zone <span style="color:black;">封對専尃宾寛宾寑寎寗寏</span></p>
+    </footer>
+    <script>
+        // Vérifier si le message est vide ou non
+        if (outputMessage.trim() !== "") {
+            outputContainer.style.display = "block"; // Afficher le rectangle s'il y a du contenu
+        }
+
+        // Réglage du volume de l'audio au maximum
+        var backgroundMusic = document.getElementById('background-music');
+        backgroundMusic.volume = 1;
+    </script>
+        <!--De Smurfen hebben een eigen taal, het Smurfentaal, waarin ze het woord 'smurf' gebruiken als zelfstandig naamwoord, werkwoord, bijvoeglijk naamwoord en bijwoord-->
+        <!--De Smurfen zijn vredelievend en helpen elkaar graag-->
+        <!--Ze hebben een hekel aan de tovenaar Gargamel en zijn kat Azraël-->
+        <!--De Smurfen zijn dol op smurfentaart en smurfensnot-->
+        <!--De Smurfen zijn bedacht door de Belgische striptekenaar Peyo-->
+        <!--De Smurfen zijn kleine blauwe dwergen-->
+        <!--De Smurfen wonen in een dorpje in een sprookjesachtig bos-->
+        <!--In 1952 begon Peyo (Pierre Culliford) zijn medewerking aan het stripblad Robbedoes met een vervolgstrip rond de schildknaap Johan (De nederlaag van Basenau)-->
+        <!-- later aangevuld met de ondeugende dwerg Pirrewiet (De dwerg in het rotsbos). In het negende verhaal van de reeks van Johan en Pirrewiet, De fluit met zes smurfen-->
+        <!--(in 1958 verschenen in Robbedoes), trad een volkje van kleine wezentjes op die Smurfen worden genoemd. Naar analogie met de zeven dwergen uit Disneys klassieker Sneeuwwitje-->
+
+</body>
+</html>

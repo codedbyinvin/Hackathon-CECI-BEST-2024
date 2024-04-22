@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #11181c; /* Couleur d'arrière-plan */
+            color: white; /* Couleur du texte */
+        }
+        .content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .logo {
+            margin-top: 20px;
+            text-align: center;
+        }
+        .logo img {
+            max-width: 200px; /* Taille maximale du logo */
+        }
+        form {
+            position: relative; /* Ajout de position relative pour positionner l'output container */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            background-color: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent */
+            padding: 20px;
+            border-radius: 10px;
+            border: 2px solid #fff; /* Bordure blanche */
+            margin-bottom: 20px; /* Espace en bas du formulaire */
+            max-width: 400px; /* Largeur maximale du formulaire */
+            width: 80%; /* Largeur par défaut */
+        }
+        input {
+            padding: 10px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            width: 100%; /* Largeur de 100% */
+            max-width: 300px; /* Largeur maximale de l'entrée */
+        }
+        button {
+            padding: 10px;
+            border: none;
+            border-radius: 5px;
+            background-color: #11181c; /* Couleur grise */
+            color: #fff;
+            cursor: pointer;
+            width: 100%; /* Largeur de 100% */
+            max-width: 300px; /* Largeur maximale du bouton */
+        }
+        button:hover {
+            background-color: #444; /* Couleur de survol sombre */
+        }
+        .output-container {
+            display: none; /* Caché par défaut */
+            position: absolute;
+            top: calc(100% + 10px); /* Position sous le formulaire */
+            left: 50%;
+            transform: translateX(-50%);
+            border: 2px solid #8B0000; /* Contour rouge foncé */
+            background-color: rgba(255, 0, 0, 0.5); /* Fond rouge semi-transparent */
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            max-width: 90%; /* Largeur maximale */
+            width: 300px; /* Largeur par défaut */
+        }
+        footer {
+            background-color: black; /* Couleur de fond noir */
+            padding: 10px;
+            text-align: center;
+            color: white; /* Couleur du texte */
+        }
+        footer p {
+            margin: 0; /* Supprimer les marges par défaut */
+        }
+
+        /* Nouveau style pour le rectangle avec les bords arrondis */
+        .rounded-container {
+            display: none; /* Caché par défaut */
+            background-color: {{box_color}};
+            border-radius: 20px;
+            padding: 10px;
+            margin-bottom: 20px; /* Espace en bas du rectangle */
+            max-width: 400px; /* Largeur maximale du rectangle */
+            width: 80%; /* Largeur par défaut */
+            text-align: center; /* Centrer le contenu */
+        }
+
+        .rounded-container p {
+            margin: 0; /* Supprimer les marges autour du paragraphe */
+            color: white; /* Couleur du texte */
+        }
+
+        /* Style pour la vidéo YouTube */
+        .youtube-video {
+            margin-top: 20px;
+            width: 80%; /* Ajuster la largeur au besoin */
+        }
+    </style>
+    <title>Salut les mecs ça dit quoi</title>
+</head>
+<body>
+    <div class="logo">
+        <img src="https://media.discordapp.net/attachments/1230496653220380674/1231380774855376906/farfadet_logo.png?ex=66259c36&is=66244ab6&hm=34574e8c08d77de1e6d43e9475014079049d904863ccf8850ec41ed11ab297e4&=&format=webp&quality=lossless&width=1066&height=1066" alt={{logo_alt}}>
+    </div>
+    <div class="content">
+     <audio id="background-music" autoplay>
+      <source src={{music_src}} type="audio/mp3">
+      Your browser does not support the audio element.
+    </audio>
+        <div class="rounded-container">
+            <p>{{ output }}</p> <!-- Display the message here -->
+        </div>
+        <form method="post">
+            <input type="text" name="input_name" placeholder="Enter something..." style="color: black;">
+            <button type="submit">Submit</button>
+        </form>
+    </div>
+    <footer>
+        <p>&copy; 2024 Une production Farfadet Industries. Tous droits pas réservés du tout la zone</p>
+    </footer>
+
+    <script>
+        // JavaScript pour afficher ou masquer le rectangle en fonction du contenu
+        var outputContainer = document.querySelector('.rounded-container');
+        var outputMessage = "{{ output }}"; // Récupérer le contenu du message
+
+        // Vérifier si le message est vide ou non
+        if (outputMessage.trim() !== "") {
+            outputContainer.style.display = "block"; // Afficher le rectangle s'il y a du contenu
+        }
+
+        // Réglage du volume de l'audio au maximum
+        var backgroundMusic = document.getElementById('background-music');
+        backgroundMusic.volume = 1;
+    </script>
+</body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            background-color: #ffffff; /* Couleur d'arrière-plan */
+            color: white; /* Couleur du texte */
+            position: relative; /* Ajout de position relative au body pour positionner absolument les balises <a> */
+        }
+
+        .content {
+            flex-grow: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .logo img {
+            max-width: 200px; /* Taille maximale du logo */
+        }
+
+        footer {
+            background-color: black; /* Couleur de fond noir */
+            padding: 10px;
+            text-align: center;
+            color: white; /* Couleur du texte */
+        }
+
+        footer p {
+            margin: 0; /* Supprimer les marges par défaut */
+        }
+
+        .rounded-container p {
+            margin: 0; /* Supprimer les marges autour du paragraphe */
+            color: white; /* Couleur du texte */
+        }
+
+        /* Positionnement absolu des balises <a> */
+        .left {
+            position: absolute;
+            left: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+
+        .center {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .right {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+        }
+    </style>
+    <title>Salut les mecs ça dit quoi</title>
+</head>
+<body>
+    <div class="content">
+        <!-- Ajout de l'image -->
+        <a href="farfadetoriginal.html" class="left" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Blanc.png" alt="Farfadet Original"></a>
+        <a href="romain.html" class="center" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Blanc.png" alt="Farfadet Original"></a>
+        <a href="smurf.html" class="right" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/f/fb/Blanc.png" alt="Farfadet Original"></a>
+    </div>
+    <footer>
+        <p>&copy; 2024 Une production Farfadet Industries. Tous droits pas réservés du tout la zone</p>
+    </footer>
+
+    <script>
+        // Réglage du volume de l'audio au maximum
+        var backgroundMusic = document.getElementById('background-music');
+        backgroundMusic.volume = 1;
+    </script>
+</body>
+</html>

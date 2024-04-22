@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lutin Malicieux</title>
+    <style>
+        footer {
+            background-color: black; /* Couleur de fond noir */
+            padding: 10px;
+            text-align: center;
+            color: white; /* Couleur du texte */
+            position: fixed; /* Le footer reste en bas de la fenêtre du navigateur */
+            width: 100%; /* Le footer prend toute la largeur */
+            bottom: 0; /* Le footer est collé au bas de la fenêtre */
+            z-index: 3; /* Place le footer au-dessus de tout le reste */
+        }
+        footer p {
+            margin: 0; /* Supprimer les marges par défaut */
+        }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            position: relative;
+            background-image: url('{{ url_for("static", filename="images/romain_tab.png") }}');
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            color: white;
+        }
+
+        .overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 50%; /* Couvre la moitié droite */
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0);
+            z-index: 1;
+        }
+
+        .clickable-area {
+            position: absolute;
+            top: 30%; /* Déplacer vers le centre */
+            left: 15%; /* Déplacer 10% à droite */
+            width: 10%; /* Largeur de la zone cliquable */
+            height: 20%; /* Hauteur de la zone cliquable */
+            cursor: auto; /* Utilisation du curseur par défaut */
+            z-index: 2;
+            user-select: none; /* Empêcher la sélection de texte */
+            outline: none; /* Masquer le contour */
+        }
+    </style>
+</head>
+<body>
+
+    <audio id="background-music" autoplay>
+        <source src="https://cdn.discordapp.com/attachments/1230496653220380674/1231445109820620840/Le_Grand_Jojo_-_Jules_Cesar.mp3?ex=6636fba1&is=662486a1&hm=8e1978e6d2284961905d847d33fae762d71490842dbd72e422be18f241077e10&" type="audio/mp3">
+        Your browser does not support the audio element.
+    </audio>
+
+    <div class="overlay"></div>
+    <a href="chat_bot.html" class="clickable-area"></a>
+
+    <footer>
+        <p>&copy; 2024 Une production Farfadet Industries. Tous droits pas réservés du tout la zone</p>
+    </footer>
+
+    <script>
+        var backgroundMusic = document.getElementById('background-music');
+        backgroundMusic.volume = 1;
+    </script>
+</body>
+</html>
