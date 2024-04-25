@@ -6,7 +6,6 @@ IMG_FOLDER = os.path.join('static', 'images')
 app = Flask(__name__)
 app.config['IMG_FOLDER'] = IMG_FOLDER
 
-
 @app.route('/', methods=["GET"])
 def homePage():
     return render_template("index.html")

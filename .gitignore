@@ -5,3 +5,4 @@ __pycache__
 .idea/modules.xml
 .idea/vcs.xml
 app.py
+.DS_Store
